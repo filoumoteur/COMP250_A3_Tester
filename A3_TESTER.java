@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class Main {
+public class A3_TESTER{
 
 	static CatInfo alice = new CatInfo("Alice", 87, 50, 250, 35);
 	static CatInfo felix = new CatInfo("Felix", 85, 60, 249, 26);
