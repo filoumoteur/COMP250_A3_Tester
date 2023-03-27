@@ -1,8 +1,7 @@
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class A3_TESTER{
-
+public class A3_TESTER {
 	static CatInfo alice = new CatInfo("Alice", 87, 50, 250, 35);
 	static CatInfo felix = new CatInfo("Felix", 85, 60, 249, 26);
 	static CatInfo bob = new CatInfo("Bob", 88, 60, 248, 50);
@@ -66,74 +65,61 @@ public class A3_TESTER{
 		// "========================\n" + "| Testing Iterator |\n" +
 		// "========================");
 		// test_27();
-		
-		 System.out.println(
-		 "========================\n" + "| Testing costPlanning |\n" +
-		 "========================");
-		test_28();
 
+		System.out.println("========================\n" + "| Testing costPlanning |\n" + "========================");
+		test_28();
 	}
 
 	// Test: same monthsHired; bigger fur added first
 	private static void test_1() {
-		System.out.println(
-				"========================\n" + "| Adding Felix then Doughnut |\n" + "========================");
+		System.out.println("========================\n" + "| Adding Felix then Doughnut |\n" + "========================");
 
 		myTree = new CatTree(alice);
 		myTree.addCat(felix);
 		myTree.addCat(doughnut);
 		printTree();
-	};
+	}
 
 	// Test: same monthsHired; smaller fur added first
 	private static void test_2() {
-		System.out.println(
-				"========================\n" + "| Adding Doughnut then Felix |\n" + "========================");
+		System.out.println("========================\n" + "| Adding Doughnut then Felix |\n" + "========================");
 
 		myTree = new CatTree(alice);
 		myTree.addCat(doughnut);
 		myTree.addCat(felix);
 
 		printTree();
-
-	};
+	}
 
 	// Test: same monthsHired; added same monthsHired; smallest:medium:big fur
 	private static void test_3() {
-		System.out.println("========================\n" + "| Adding Eleanor then Felix then Doughnut |\n"
-				+ "========================");
+		System.out.println("========================\n" + "| Adding Eleanor then Felix then Doughnut |\n" + "========================");
 
 		myTree = new CatTree(alice);
 		myTree.addCat(eleanor);
 		myTree.addCat(felix);
 		myTree.addCat(doughnut);
 		printTree();
-
-	};
+	}
 
 	// Test: same monthsHired; added same monthsHired; same fur
 	private static void test_4() {
-		System.out.println("========================\n" + "| Adding Eleanor then testCat then Felix then Doughnut |\n"
-				+ "========================");
+		System.out.println("========================\n" + "| Adding Eleanor then testCat then Felix then Doughnut |\n" + "========================");
 
-		CatInfo testCat = new CatInfo("TestCat", eleanor.monthHired, eleanor.furThickness,
-				eleanor.nextGroomingAppointment, eleanor.expectedGroomingCost);
+		CatInfo testCat = new CatInfo("TestCat", eleanor.monthHired, eleanor.furThickness, eleanor.nextGroomingAppointment, eleanor.expectedGroomingCost);
 		myTree = new CatTree(alice);
 		myTree.addCat(eleanor);
 		myTree.addCat(testCat);
 		myTree.addCat(felix);
 		myTree.addCat(doughnut);
 		printTree();
-
-	};
+	}
 
 	// Test: all cats + a cat that has equal fur to another and a link
 	private static void test_5() {
-		System.out.println("========================\n"
-				+ "| Running the full test in order and adding a cat of equal fur |\n" + "========================");
+		System.out.println("========================\n" + "| Running the full test in order and adding a cat of equal fur |\n" + "========================");
 
-		CatInfo testCat = new CatInfo("TestCat", felix.monthHired, felix.furThickness, felix.nextGroomingAppointment,
-				felix.expectedGroomingCost);
+		CatInfo testCat = new CatInfo("TestCat", felix.monthHired, felix.furThickness, felix.nextGroomingAppointment, felix.expectedGroomingCost);
 
 		myTree = new CatTree(alice);
 		myTree.addCat(bob);
@@ -146,12 +132,11 @@ public class A3_TESTER{
 		myTree.addCat(testCat);
 
 		printTree();
-	};
+	}
 
 	// Test: delete Coco from tree
 	private static void test_6() {
-		System.out.println("========================\n" + "| Running the full test and removing Coco |\n"
-				+ "========================");
+		System.out.println("========================\n" + "| Running the full test and removing Coco |\n" + "========================");
 
 		myTree = new CatTree(alice);
 		myTree.addCat(bob);
@@ -164,12 +149,11 @@ public class A3_TESTER{
 
 		myTree.removeCat(coco);
 		printTree();
-	};
+	}
 
 	// Test: delete Coco and Alice from tree
 	private static void test_7() {
-		System.out.println("========================\n" + "| Running the full test and removing Coco and Alice |\n"
-				+ "========================");
+		System.out.println("========================\n" + "| Running the full test and removing Coco and Alice |\n" + "========================");
 
 		myTree = new CatTree(alice);
 		myTree.addCat(bob);
@@ -183,12 +167,11 @@ public class A3_TESTER{
 		myTree.removeCat(coco);
 		myTree.removeCat(alice);
 		printTree();
-	};
+	}
 
 	// Test: delete Coco and Alice from tree
 	private static void test_8() {
-		System.out.println("========================\n"
-				+ "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
+		System.out.println("========================\n" + "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
 
 		myTree = new CatTree(alice);
 		myTree.addCat(bob);
@@ -203,18 +186,17 @@ public class A3_TESTER{
 		myTree.removeCat(alice);
 		myTree.removeCat(bob);
 		printTree();
-	};
+	}
 
 	// Test: delete root
 	private static void test_9() {
-		System.out.println(
-				"========================\n" + "| Adding Alice then removing Alice |\n" + "========================");
+		System.out.println("========================\n" + "| Adding Alice then removing Alice |\n" + "========================");
 
 		myTree = new CatTree(alice);
 		myTree.addCat(felix);
 		myTree.removeCat(alice);
 		printTree();
-	};
+	}
 
 	// Test: Test removeCat when Node to remove is at root
 	private static void test_10() {
@@ -233,8 +215,7 @@ public class A3_TESTER{
 
 	// Test: if mostSenior returns correctly in the full tree
 	private static void test_11() throws Exception {
-		System.out.println("========================\n"
-				+ "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
+		System.out.println("========================\n" + "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
 
 		myTree = new CatTree(alice);
 		myTree.addCat(bob);
@@ -252,8 +233,7 @@ public class A3_TESTER{
 
 	// Test: if mostSenior returns correctly with one node
 	private static void test_12() throws Exception {
-		System.out.println("========================\n"
-				+ "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
+		System.out.println("========================\n" + "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
 
 		myTree = new CatTree(alice);
 
@@ -264,12 +244,9 @@ public class A3_TESTER{
 
 	// Test: all cats + a cat that is senior to all
 	private static void test_13() {
-		System.out.println("========================\n"
-				+ "| Running the full test in order and adding a cat that is most senior |\n"
-				+ "========================");
+		System.out.println("========================\n" + "| Running the full test in order and adding a cat that is most senior |\n" + "========================");
 
-		CatInfo testCat = new CatInfo("TestCat", felix.monthHired - 1, felix.furThickness,
-				felix.nextGroomingAppointment, felix.expectedGroomingCost);
+		CatInfo testCat = new CatInfo("TestCat", felix.monthHired - 1, felix.furThickness, felix.nextGroomingAppointment, felix.expectedGroomingCost);
 
 		myTree = new CatTree(alice);
 		myTree.addCat(bob);
@@ -282,16 +259,14 @@ public class A3_TESTER{
 		myTree.addCat(testCat);
 
 		printTree();
-	};
+	}
 
 	// Test: if mostSenior returns correctly in the full tree when added a senior
 	// that is most senior
 	private static void test_14() throws Exception {
-		System.out.println("========================\n"
-				+ "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
+		System.out.println("========================\n" + "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
 
-		CatInfo testCat = new CatInfo("TestCat", felix.monthHired - 1, felix.furThickness,
-				felix.nextGroomingAppointment, felix.expectedGroomingCost);
+		CatInfo testCat = new CatInfo("TestCat", felix.monthHired - 1, felix.furThickness, felix.nextGroomingAppointment, felix.expectedGroomingCost);
 
 		myTree = new CatTree(alice);
 		myTree.addCat(bob);
@@ -310,11 +285,9 @@ public class A3_TESTER{
 
 	// Test: if fluffiest returns correctly
 	private static void test_15() throws Exception {
-		System.out.println("========================\n"
-				+ "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
+		System.out.println("========================\n" + "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
 
-		CatInfo testCat = new CatInfo("TestCat", felix.monthHired - 1, felix.furThickness + 1,
-				felix.nextGroomingAppointment, felix.expectedGroomingCost);
+		CatInfo testCat = new CatInfo("TestCat", felix.monthHired - 1, felix.furThickness + 1, felix.nextGroomingAppointment, felix.expectedGroomingCost);
 
 		myTree = new CatTree(alice);
 		myTree.addCat(bob);
@@ -333,11 +306,9 @@ public class A3_TESTER{
 
 	// Test: if fluffiest returns correctly
 	private static void test_16() throws Exception {
-		System.out.println("========================\n"
-				+ "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
+		System.out.println("========================\n" + "| Running the full test and removing Coco and Alice and Bob |\n" + "========================");
 
-		CatInfo testCat = new CatInfo("TestCat", felix.monthHired - 1, felix.furThickness + 1,
-				felix.nextGroomingAppointment, felix.expectedGroomingCost);
+		CatInfo testCat = new CatInfo("TestCat", felix.monthHired - 1, felix.furThickness + 1, felix.nextGroomingAppointment, felix.expectedGroomingCost);
 
 		myTree = new CatTree(alice);
 
@@ -348,8 +319,7 @@ public class A3_TESTER{
 
 	// Test: hiredFromMonths; only root and not in interval
 	private static void test_17() throws Exception {
-		System.out.println("\n========================\n" + "| Adding root and checking in (1000,1000) |\n"
-				+ "========================\n");
+		System.out.println("\n========================\n" + "| Adding root and checking in (1000,1000) |\n" + "========================\n");
 
 		myTree = new CatTree(alice);
 		System.out.println("The test conluded: " + assertEquals(0, myTree.hiredFromMonths(1000, 1000)));
@@ -359,8 +329,7 @@ public class A3_TESTER{
 
 	// Test: hiredFromMonths;
 	private static void test_18() throws Exception {
-		System.out.println("\n========================\n" + "| Adding root and checking in (80,90) |\n"
-				+ "========================\n");
+		System.out.println("\n========================\n" + "| Adding root and checking in (80,90) |\n" + "========================\n");
 		int expected = 2;
 
 		myTree = new CatTree(alice);
@@ -373,8 +342,7 @@ public class A3_TESTER{
 
 	// Test: hiredFromMonths;
 	private static void test_19() throws Exception {
-		System.out.println("\n========================\n" + "| Adding root and checking in (80,90) |\n"
-				+ "========================\n");
+		System.out.println("\n========================\n" + "| Adding root and checking in (80,90) |\n" + "========================\n");
 		int expected = 2;
 
 		myTree = new CatTree(alice);
@@ -388,8 +356,7 @@ public class A3_TESTER{
 
 	// Test: hiredFromMonths;
 	private static void test_20() throws Exception {
-		System.out.println("\n========================\n" + "| Adding root and checking in (80,95) |\n"
-				+ "========================\n");
+		System.out.println("\n========================\n" + "| Adding root and checking in (80,95) |\n" + "========================\n");
 		int expected = 3;
 
 		myTree = new CatTree(alice);
@@ -403,8 +370,7 @@ public class A3_TESTER{
 
 	// Test: hiredFromMonths; only root and not in interval
 	private static void test_21() throws Exception {
-		System.out.println("\n========================\n" + "| Adding root and checking in (0,100) |\n"
-				+ "========================\n");
+		System.out.println("\n========================\n" + "| Adding root and checking in (0,100) |\n" + "========================\n");
 		int expected = 8;
 
 		myTree = new CatTree(alice);
@@ -423,24 +389,21 @@ public class A3_TESTER{
 
 	// Test: FluffliestFromMonth; same branch
 	private static void test_22() throws Exception {
-		System.out.println("\n========================\n" + "| Checking for month 85; same branch |\n"
-				+ "========================\n");
+		System.out.println("\n========================\n" + "| Checking for month 85; same branch |\n" + "========================\n");
 
 		myTree = new CatTree(felix);
 		int expected = myTree.fluffiest();
 		myTree.addCat(doughnut);
 		myTree.addCat(eleanor);
 
-		System.out.println("The test conluded: " + assertEquals(expected, myTree.fluffiestFromMonth(85).furThickness)
-				+ " Fluffliest from month: " + myTree.fluffiestFromMonth(85).toString());
+		System.out.println("The test conluded: " + assertEquals(expected, myTree.fluffiestFromMonth(85).furThickness) + " Fluffliest from month: " + myTree.fluffiestFromMonth(85).toString());
 
 		printTree();
 	}
 
 	// Test: FluffliestFromMonth; one branch with null
 	private static void test_23() throws Exception {
-		System.out.println("\n========================\n" + "| Checking for month 87; same branch |\n"
-				+ "========================\n");
+		System.out.println("\n========================\n" + "| Checking for month 87; same branch |\n" + "========================\n");
 
 		myTree = new CatTree(felix);
 		myTree.addCat(doughnut);
@@ -453,8 +416,7 @@ public class A3_TESTER{
 
 	// Test: FluffliestFromMonth; senior branch
 	private static void test_24() throws Exception {
-		System.out.println("\n========================\n" + "| Checking for month 85; senior branch |\n"
-				+ "========================\n");
+		System.out.println("\n========================\n" + "| Checking for month 85; senior branch |\n" + "========================\n");
 
 		myTree = new CatTree(alice);
 
@@ -467,15 +429,13 @@ public class A3_TESTER{
 		myTree.addCat(coco);
 
 		int expected = myTree.root.senior.fluffiest();
-		System.out.println("The test conluded: " + assertEquals(expected, myTree.fluffiestFromMonth(85).furThickness)
-				+ " Fluffliest from month: " + myTree.fluffiestFromMonth(85).toString());
+		System.out.println("The test conluded: " + assertEquals(expected, myTree.fluffiestFromMonth(85).furThickness) + " Fluffliest from month: " + myTree.fluffiestFromMonth(85).toString());
 		printTree();
 	}
 
 	// Test: FluffliestFromMonth; junior branch
 	private static void test_25() throws Exception {
-		System.out.println("\n========================\n" + "| Checking for month 88; senior branch |\n"
-				+ "========================\n");
+		System.out.println("\n========================\n" + "| Checking for month 88; senior branch |\n" + "========================\n");
 
 		myTree = new CatTree(alice);
 
@@ -488,15 +448,13 @@ public class A3_TESTER{
 		myTree.addCat(coco);
 
 		int expected = 60;
-		System.out.println("The test conluded: " + assertEquals(expected, myTree.fluffiestFromMonth(88).furThickness)
-				+ " Fluffliest from month: " + myTree.fluffiestFromMonth(88).toString());
+		System.out.println("The test conluded: " + assertEquals(expected, myTree.fluffiestFromMonth(88).furThickness) + " Fluffliest from month: " + myTree.fluffiestFromMonth(88).toString());
 		printTree();
 	}
 
 	// Test: hiredFromMonths; bad parameters
 	private static void test_26() throws Exception {
-		System.out.println("\n========================\n" + "| Adding root and checking in (1000,100) |\n"
-				+ "========================\n");
+		System.out.println("\n========================\n" + "| Adding root and checking in (1000,100) |\n" + "========================\n");
 		int expected = 0;
 
 		myTree = new CatTree(alice);
@@ -515,8 +473,7 @@ public class A3_TESTER{
 
 	// Test: Iterator
 	private static void test_27() throws Exception {
-		System.out.println(
-				"\n========================\n" + "| Iterating through myTree |\n" + "========================\n");
+		System.out.println("\n========================\n" + "| Iterating through myTree |\n" + "========================\n");
 
 		myTree = new CatTree(alice);
 		myTree.addCat(bob);
@@ -529,7 +486,7 @@ public class A3_TESTER{
 
 		Iterator myIter = myTree.iterator();
 		int counter = 0;
-		CatInfo testArray[] = new CatInfo[] { eleanor, doughnut, felix, gaia, alice, coco, bob, hilda };
+		CatInfo testArray[] = new CatInfo[]{eleanor, doughnut, felix, gaia, alice, coco, bob, hilda};
 
 		while (myIter.hasNext()) {
 			CatInfo myInfo = (CatInfo) myIter.next();
@@ -546,8 +503,7 @@ public class A3_TESTER{
 
 	// Test: Iterator
 	private static void test_28() throws Exception {
-		System.out.println(
-				"\n========================\n" + "| Iterating through myTree |\n" + "========================\n");
+		System.out.println("\n========================\n" + "| Iterating through myTree |\n" + "========================\n");
 
 		myTree = new CatTree(alice);
 		myTree.addCat(bob);
@@ -558,25 +514,24 @@ public class A3_TESTER{
 		myTree.addCat(gaia);
 		myTree.addCat(coco);
 
-		int testArray[] = new int[] { 0, 46, 0, 42, 5, 50, 60};
+		int testArray[] = new int[]{0, 46, 0, 42, 5, 50, 60};
 		int actualArray[] = myTree.costPlanning(7);
-		
-		//make sure size is good
-		assertEquals(testArray.length,actualArray.length);
-		
-		for(int i = 0; i<testArray.length;i++){
+
+		// make sure size is good
+		assertEquals(testArray.length, actualArray.length);
+
+		for (int i = 0; i < testArray.length; i++) {
 			assertEquals(testArray[i], actualArray[i]);
 		}
-		
+
 		System.out.println(Arrays.toString(actualArray));
-		
+
 		printTree();
 	}
 
 	// Creates all the cats from the initial example of addcats
 	private static void test_full() {
-		System.out.println("\n========================\n" + "| Running the full test in order! |\n"
-				+ "========================\n");
+		System.out.println("\n========================\n" + "| Running the full test in order! |\n" + "========================\n");
 
 		myTree = new CatTree(alice);
 		myTree.addCat(bob);
@@ -588,7 +543,7 @@ public class A3_TESTER{
 		myTree.addCat(coco);
 
 		printTree();
-	};
+	}
 
 	public static void printTree() {
 		System.out.println(myTree.root);
